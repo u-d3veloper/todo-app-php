@@ -16,8 +16,8 @@ function delete_task($pdo, $id)
 }
 function add_task($pdo, $task_content)
 {
-    $task = trim($task_content);
-    $delay = date('Y-m-d H:i:s');
+    $task = trim($task_content['task']);
+    $delay = $task_content['task_date'];
     $statement = $pdo->prepare("INSERT INTO tasks (name, delay, state) VALUES (:name, :delay, 0)");
     $statement->execute(
         [

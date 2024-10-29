@@ -4,8 +4,8 @@ require 'utils.php';
 if (isset($_GET['id'])) {
     delete_task($conn, $_GET['id']);
 }
-if (isset($_POST['task'])) {
-    add_task($conn, $_POST['task']);
+if (isset($_POST['task']) && isset($_POST['task_date'])) {
+    add_task($conn, $_POST);
 }
 
 ?>
@@ -18,8 +18,9 @@ if (isset($_POST['task'])) {
     <div class="container-fluid bg-body-tertiary">
         <form action="#" method="post" class="mb-0">
             <div class="d-flex align-items-center">
-                <input type="text" class="form-control m-3 w-75" placeholder="Next task" aria-label="Next-task" name="task">
-                <button class="btn btn-primary h-100 m-3" type="submit">Add this task</button>
+                <input type="text" class="form-control m-3 w-50" placeholder="Next task" aria-label="Next-task" name="task">
+                <input type="date" class="form-control m-3 w-25" aria-label="Task-date" name="task_date">
+                <button class="btn btn-primary h-100 m-3" type="submit">Add</button>
             </div>
         </form>
 
